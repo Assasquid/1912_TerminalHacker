@@ -7,15 +7,11 @@ public class Hacker : MonoBehaviour
 
     public string greeting = "Welcome Admin.";
 
-    //Comments starting with GDT are the way GDT wrote the code in their course.
-
     void Start()
     {
-        //GDT - ShowMainMenu("Welcome Admin.");
         ShowMainMenu();
     }
 
-    //GDT - void ShowMainMenu(string greeting)
     void ShowMainMenu()
     {
         Terminal.ClearScreen();
