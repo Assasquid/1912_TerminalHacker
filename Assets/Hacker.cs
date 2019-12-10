@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public string greeting = "Welcome Admin.";
+
+    //Comments starting with GDT are the way GDT wrote the code in their course.
+
     void Start()
     {
+        //GDT - ShowMainMenu("Welcome Admin.");
         ShowMainMenu();
     }
 
+    //GDT - void ShowMainMenu(string greeting)
     void ShowMainMenu()
     {
         Terminal.ClearScreen();
+        Terminal.WriteLine(greeting);
         Terminal.WriteLine("Accessing the main Server...");
         Terminal.WriteLine("Main Server On.");
-        Terminal.WriteLine("Welcome Admin. What would you like to");
+        Terminal.WriteLine("What would you like to");
         Terminal.WriteLine("access today ?");
         Terminal.WriteLine("Press 1 for YouTube");
         Terminal.WriteLine("Press 2 for the Video Game Archive");
@@ -23,9 +30,9 @@ public class Hacker : MonoBehaviour
         Terminal.WriteLine("Enter your selection :");
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnUserInput(string input)
     {
-        
+        print("Player '" + input + "'");
     }
+
 }
