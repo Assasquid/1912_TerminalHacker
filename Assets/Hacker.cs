@@ -6,6 +6,7 @@ public class Hacker : MonoBehaviour
 {
 
     public string greeting = "Welcome Admin.";
+    int level;
 
     void Start()
     {
@@ -33,16 +34,19 @@ public class Hacker : MonoBehaviour
         if (input == "1")
         {
             Terminal.WriteLine("You chose YouTube.");
+            level = 1;
         }
 
         else if (input == "2")
         {
             Terminal.WriteLine("You chose Video Game Archive.");
+            level = 2;
         }
 
         else if (input == "3")
         {
             Terminal.WriteLine("You chose Nebula Tales.");
+            level = 3;
         }
 
         else if (input == "menu")
@@ -75,10 +79,25 @@ public class Hacker : MonoBehaviour
             Terminal.WriteLine("Mmmmm YUMMY !");
         }
 
+        else if (input == "anticonstitutionnellement")
+        {
+            Terminal.WriteLine("Gladio ? C'est toi ?");
+        }
+
+        else if (input == "code createur")
+        {
+            Terminal.WriteLine("Salut ChickenGod !");
+        }
+
         else
         {
             Terminal.WriteLine("Please type a valid command.");
         }
+    }
+
+    void StartGame()
+    {
+        Terminal.WriteLine("You have chosen level " + level);
     }
 
 }
