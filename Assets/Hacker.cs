@@ -9,7 +9,7 @@ public class Hacker : MonoBehaviour
     int level;
 
     enum Screen { MainMenu, Password, Win }
-    Screen currentScreen = Screen.MainMenu;
+    Screen currentScreen;
 
     void Start()
     {
