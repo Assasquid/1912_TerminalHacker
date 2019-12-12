@@ -34,7 +34,20 @@ public class Hacker : MonoBehaviour
 
     void OnUserInput(string input)
     {
-        print("Player '" + input + "'");
+        if (input == "menu") // We can always go direct to main menu.
+        {
+            ShowMainMenu();
+        }
+
+        else if (currentScreen == Screen.MainMenu)
+        {
+            RunMainMenu(input);
+        }
+
+    }
+
+    void RunMainMenu(string input)
+    {
         if (input == "1")
         {
             level = 1;
@@ -53,11 +66,6 @@ public class Hacker : MonoBehaviour
             level = 3;
             StartGame();
         }
-
-        else if (input == "menu")
-        {
-            ShowMainMenu();
-        } // TODO handle differently depending on screen
 
         else if (input == "woomy")
         {
