@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
+    //Game configuration data
+    string[] level1Passwords = {"video", "creator", "like", "dislike", "live" };
+    string[] level2Passwords = { "multiplayer", "narrative", "platformer", "controller", "cooperation" };
+    string[] level3Passwords = { "user experience", "game design", "communication", "storytellers", "game development" };
 
+
+    //Game state
     public string greeting = "Welcome Admin.";
     int level;
     enum Screen { MainMenu, Password, Win }
@@ -15,6 +21,7 @@ public class Hacker : MonoBehaviour
 
     void Start()
     {
+        print(level1Passwords[0]);
         ShowMainMenu();
     }
 
@@ -54,25 +61,10 @@ public class Hacker : MonoBehaviour
 
     void RunMainMenu(string input)
     {
-        if (input == "1")
+        bool isValidLevelNumber = (input == "1" || input == "2" || input == "3");
+        if (isValidLevelNumber)
         {
-            level = 1;
-            password = "video";
-            StartGame();
-        }
-
-        else if (input == "2")
-        {
-            level = 2;
-            password = "narrative";
-            StartGame();
-
-        }
-
-        else if (input == "3")
-        {
-            level = 3;
-            password = "game design";
+            level = int.Parse(input);
             StartGame();
         }
 
@@ -106,6 +98,11 @@ public class Hacker : MonoBehaviour
             Terminal.WriteLine("Gladio ? C'est toi ?");
         }
 
+        else if (input == "pire")
+        {
+            Terminal.WriteLine("'Moi c'est pire !' - Darksquid 2019");
+        }
+
         else if (input == "code createur")
         {
             Terminal.WriteLine("Salut ChickenGod !");
@@ -120,7 +117,22 @@ public class Hacker : MonoBehaviour
     void StartGame()
     {
         currentScreen = Screen.Password;
-        Terminal.WriteLine("You have chosen level " + level);
+        Terminal.ClearScreen();
+        switch (level)
+        {
+            case 1:
+                password = level1Passwords[0];
+                break;
+            case 2:
+                password = level2Passwords[0];
+                break;
+            case 3:
+                password = level3Passwords[0];
+                break;
+            default:
+                Debug.LogError("Invalid level number.");
+                break;
+        }
         Terminal.WriteLine("Please enter your password.");
     }
 
