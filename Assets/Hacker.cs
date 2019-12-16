@@ -182,7 +182,7 @@ public class Hacker : MonoBehaviour
                 Terminal.WriteLine("Type 'menu' to go back.");
                 break;
             default:
-                Debug.LogError("Invalid level number.");
+                Debug.LogError("Invalid level reached.");
                 break;
         }
     }
