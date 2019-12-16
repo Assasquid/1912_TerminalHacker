@@ -124,7 +124,7 @@ public class Hacker : MonoBehaviour
                 password = level1Passwords[Random.Range(0, level1Passwords.Length)];
                 break;
             case 2:
-                password = level1Passwords[Random.Range(0, level2Passwords.Length)];
+                password = level2Passwords[Random.Range(0, level2Passwords.Length)];
                 break;
             case 3:
                 password = level3Passwords[Random.Range(0, level3Passwords.Length)];
@@ -140,7 +140,7 @@ public class Hacker : MonoBehaviour
     {
         if (input == password)
         {
-            Terminal.WriteLine("WELL DONE !");
+            DisplayWinScreen();
         }
 
         else 
@@ -149,4 +149,41 @@ public class Hacker : MonoBehaviour
         }
     }
 
+    void DisplayWinScreen()
+    {
+        currentScreen = Screen.Win;
+        Terminal.ClearScreen();
+        ShowLevelReward();
+    }
+
+    void ShowLevelReward()
+    {
+        switch (level)
+        {
+            case 1:
+                Terminal.WriteLine("WELL DONE !");
+                Terminal.WriteLine("You can give yourself 10M Subscribers !");
+                Terminal.WriteLine("Type 'menu' to go back.");
+                break;
+            case 2:
+                Terminal.WriteLine("WELL DONE !");
+                Terminal.WriteLine("You can play the unannounced...");
+                Terminal.WriteLine("Splatoon 3 ! <コ:彡   <コ:彡   <コ:彡");
+                Terminal.WriteLine("Type 'menu' to go back.");
+                break;
+            case 3:
+                Terminal.WriteLine("WELL DONE !");
+                Terminal.WriteLine("You found a Secret Army of Cats !");
+                Terminal.WriteLine(@"
+ /\_/\  /\_/\  /\_/\  /\_/\
+( o.o )( o.o )( o.o )( o.o )
+ > ^ <  > ^ <  > ^ <  > ^ <
+                ");
+                Terminal.WriteLine("Type 'menu' to go back.");
+                break;
+            default:
+                Debug.LogError("Invalid level number.");
+                break;
+        }
+    }
 }
